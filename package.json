@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "engines": {
-    "npm": ">=8.0.0 <=8.19.2",
-    "node": ">=18.0.0 <=18.14.2"
-  },
   "scripts": {
     "install:pkg": "yarn install --frozen-lockfile && yarn prepare",
     "build": "tsc && copyfiles --error --up 1 src/docs/*.* dist",
