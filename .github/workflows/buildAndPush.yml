@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           
       - name: Test File
-        run : ls
+        run : node -v
 
       - name: Build and tag Docker image
         uses: docker/build-push-action@v2
