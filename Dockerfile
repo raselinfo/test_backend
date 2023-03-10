@@ -9,7 +9,11 @@ RUN yarn install --frozen-lockfile
 
 COPY . .
 
+RUN yarn build
+
 ENV PORT 4000
 EXPOSE $PORT
 
-CMD ["yarn","dev"]
+
+# CMD ["yarn","dev"]
+CMD ["yarn","start"]
