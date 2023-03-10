@@ -6,6 +6,7 @@ import swaggerUI from 'swagger-ui-express';
 import YML from 'yamljs';
 import errorMiddleware from '../middlewares/error/error.middleware';
 import routes from '../routes';
+import dbBackup from '../services/db/backup/db_backup';
 import combineRoutes from '../utils/conbineRoutes/conbineRoutes';
 
 const app: Application = express();
@@ -36,6 +37,9 @@ combineRoutes(app, routes);
 
 // TODO: Install Global Error Handler
 app.use(errorMiddleware);
+
+// TODO: Backup DB => Every day at midnight
+dbBackup();
 
 // TODO: Install HTTP Server
 export const server = http.createServer(app);
