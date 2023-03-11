@@ -19,6 +19,8 @@ module.exports = {
     'import/no-unresolved': 'error',
     'import/extensions': 'off',
     'linebreak-style': 'off',
+    'import/no-import-module-exports': 'off',
+    'consistent-return': 'off',
   },
   env: {
     node: true,
