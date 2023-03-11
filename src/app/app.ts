@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
 import cors from 'cors';
 import express, { Application } from 'express';
 import http from 'http';
 import path from 'path';
 import swaggerUI from 'swagger-ui-express';
 import YML from 'yamljs';
+import redisClient from '../cache/cache';
 import errorMiddleware from '../middlewares/error/error.middleware';
 import routes from '../routes';
 import dbBackup from '../services/db/backup/db_backup';
@@ -40,6 +42,11 @@ app.use(errorMiddleware);
 
 // TODO: Backup DB => Every day at midnight
 dbBackup();
+
+// TODO: Install Redis
+redisClient.on('connect', () => {
+  console.log("Connected!")
+})
 
 // TODO: Install HTTP Server
 export const server = http.createServer(app);
