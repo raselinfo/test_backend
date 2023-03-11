@@ -1,18 +1,15 @@
 import config from 'config';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET:string = config.get('jwt_secret_key');
+const JWT_SECRET: string = config.get('jwt_secret_key');
 
-interface Payload {
-  user: string;
-  password: string;
-}
 
 const options = {
-  expiresIn: '1h',
+  expiresIn: '24h',
 };
 
-export const signIn = (payload: Payload): string | void => {
+export const generateToken = (payload: any): string | void => {
+  console.log(payload)
   const token = jwt.sign(payload, JWT_SECRET, options);
   if (!token) {
     console.error('Sign in Failed!');
@@ -26,6 +23,6 @@ export const verify = (token: string) => {
     const decoded = jwt.verify(token, JWT_SECRET);
     return decoded;
   } catch (err) {
-    console.error((err as {message:string}).message);
+    console.error((err as { message: string }).message);
   }
 };
