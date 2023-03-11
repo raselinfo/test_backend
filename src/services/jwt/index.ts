@@ -3,13 +3,12 @@ import jwt from 'jsonwebtoken';
 
 const JWT_SECRET: string = config.get('jwt_secret_key');
 
-
 const options = {
   expiresIn: '24h',
 };
 
 export const generateToken = (payload: any): string | void => {
-  console.log(payload)
+  console.log(payload);
   const token = jwt.sign(payload, JWT_SECRET, options);
   if (!token) {
     console.error('Sign in Failed!');

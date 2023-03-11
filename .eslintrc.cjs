@@ -21,7 +21,7 @@ module.exports = {
     'linebreak-style': 'off',
     'import/no-import-module-exports': 'off',
     'consistent-return': 'off',
-    'no-underscore-dangle':"off"
+    'no-underscore-dangle': 'off',
   },
   env: {
     node: true,

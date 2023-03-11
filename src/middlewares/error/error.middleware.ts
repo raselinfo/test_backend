@@ -6,7 +6,6 @@ import CustomError from '../../services/Error/Error';
 const MODE = config.get('mode');
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const errorMiddleware: ErrorRequestHandler = (err, req, res, _next) => {
-
   const defaultErrorMessage = 'Something went wrong!';
   let error = {
     status: err.status || 501,
